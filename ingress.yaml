@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web
+  namespace: test
+spec:
+  rules:
+  - host: test03-cluster.ovng.dev.myovcloud.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: web-node-port
+            port: 
+              number: 80
